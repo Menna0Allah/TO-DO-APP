@@ -11,7 +11,7 @@ function App() {
   const [messageClass, setMessageClass] = useState("");
   const inputRef = useRef();
 
-  // جلب المهام المخزنة عند تحميل الصفحة
+
   useEffect(() => {
     fetch('http://localhost:8000/api/notes/')
       .then(response => response.json())
@@ -20,7 +20,6 @@ function App() {
   }, []);
   
 
-  // إضافة مهمة جديدة وإرسالها إلى Django
   const addTask = () => {
     const x = inputRef.current.value;
 
@@ -47,7 +46,6 @@ function App() {
     }
   };
 
-  // حذف المهمة
   const deleteTask = (index) => {
     const taskToDelete = tasks[index];
 
@@ -62,7 +60,6 @@ function App() {
     });
   };
 
-  // تحديد المهمة كمكتملة
   const doneTask = (index) => {
     const taskToUpdate = tasks[index];
     const updatedTask = { ...taskToUpdate, done: !taskToUpdate.done };
@@ -117,94 +114,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-// import './App.css';
-// import addIcon from './add.png';
-// import deleteIcon from './bin.png';
-// import doneIcon from './done.png'
-// import { useRef,useState } from 'react';
-
-// function App() {
-
-//   const [tasks,setTasks] = useState([]);
-//   const [message, setMessage] = useState("");
-//   const [messageClass, setMessageClass] = useState("");
-
-//   const inputRef = useRef();
-
-
-//   const addTask = () =>{
-//     const x = inputRef.current.value;
-  
-//     if (x === ""){
-//       setMessage("It can't be an empty task, please enter your task !");
-//       setMessageClass("error"); 
-//     }else{
-//       const x2 = {done:false,x}
-//       setTasks([...tasks,x2]);
-//       inputRef.current.value="";
-//       setMessage("Your task was added successfully.");
-//       setMessageClass("success");
-//     }
-//   }
-
-//   const deleteTask = (index) => {
-//     setMessage("You deleted this task.");
-//     setMessageClass("error"); 
-//     const x = [...tasks];
-//     x.splice(index,1);
-//     setTasks(x);
-//   }
-
-//   const doneTask = (index) =>{
-//     const x = [...tasks];
-//     x[index].done = !x[index].done;
-//     setTasks(x)
-//     if (x[index].done===true){
-//       setMessage("Keep going and finish all tasks.");
-//       setMessageClass("success");
-//     }else{
-//       setMessage("");
-//     }
-//   }
-
-//   const handleKeyPress = (event) => {
-//     if (event.key === 'Enter') {
-//       addTask();
-//     }
-//   };
-
-//   return (
-//     <div className="App">
-//       <div className='container'>
-//           <h2>To Do List</h2>
-//           <div className='list'>
-//             <input onKeyPress={handleKeyPress} ref={inputRef} placeholder='add your task here' ></input>
-//             <button onClick={addTask}><img src={addIcon} alt='' /></button>
-//           </div>
-//           <p className={messageClass}>{message}</p>
-//           <ul>
-//             {tasks.map(({x,done},index)=>{
-//               return (
-//                 <div class="listtask">
-//                   <li className={done?'done':''} key={index} onClick={()=>doneTask(index)} >{x}</li>
-//                   <button onClick={()=>doneTask(index)} >
-//                     <img src={doneIcon} alt="" ></img>
-//                   </button>
-//                   <button onClick={()=>deleteTask(index)}>
-//                     <img src={deleteIcon} alt="" ></img>
-//                   </button>
-//                 </div>
-//             );
-//             })}
-//           </ul>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
