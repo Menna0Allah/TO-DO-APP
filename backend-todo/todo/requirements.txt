@@ -1,0 +1,19 @@
+asgiref==3.8.1
+distlib==0.3.8
+dj-database-url==2.2.0
+Django==5.0.7
+django-cors-headers==4.4.0
+django-grappelli==4.0.1
+django-heroku==0.3.1
+django-suit @ https://github.com/darklow/django-suit/tarball/v2#sha256=b40c916de9528ca86bcccd42d1fd54e7773e5071d2bfd9efc576039c1a441c0b
+filelock==3.14.0
+gunicorn==23.0.0
+packaging==24.1
+pillow==10.4.0
+platformdirs==4.2.2
+psycopg2==2.9.9
+sqlparse==0.5.0
+typing_extensions==4.12.2
+tzdata==2024.1
+virtualenv==20.26.2
+whitenoise==6.7.0
